@@ -1,0 +1,42 @@
+class Users(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)   
+    email = models.CharField(max_length=255)
+    age = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
+    def __repr__(self) -> str:
+        return f'{self.id}: {self.first_name}'
+
+from main.models import Users
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell -i ipython
+from 
+
+Users.objects.create(first_name="John",last_name="Wick",email="JohnWick@gmail.com",age=48)
+Users.objects.create(first_name="Thomas",last_name="Anderson",email="theOne@gmail.com",age=35)
+Users.objects.create(first_name="John",last_name="Constantine",email="Hellblazer@gmail.com",age=37)
+
+Users.objects.all()
+
+Users.objects.first()
+
+Users.objects.last()
+
+pancackes = Users.objects.get(id=3)
+
+pancackes.last_name = "Pancackes"
+
+pancackes.save()
+
+deleteuser = Users.objects.get(id=2)
+
+deleteuser.delete()
+
+Users.objects.all().order_by("first_name")
+
+Users.objects.all().order_by("-first_name")

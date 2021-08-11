@@ -1,0 +1,72 @@
+class Dojos(models.Model):
+    name = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=45)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self) -> str:
+        return f'{self.id}: {self.name}'
+
+class Ninjas(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    Dojo = models.ForeignKey(Dojos, related_name="Ninja", on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self) -> str:
+        return f'{self.id}: {self.first_name}'
+
+
+python 
+from main.models import Dojos,Ninjas
+python manage.py shell -i ipython
+
+Dojos.objects.create(name="Dojo1",city="Stgo",state="RM")
+Dojos.objects.create(name="Dojo2",city="Stgo",state="RM")
+Dojos.objects.create(name="Dojo3",city="Stgo",state="RM")
+
+dojodel = Dojos.objects.get(id=1)
+dojodel.delete()
+dojodel = Dojos.objects.get(id=2)
+dojodel.delete()
+dojodel = Dojos.objects.get(id=3)
+dojodel.delete()
+
+Dojos.objects.create(name="Dojo1",city="Stgo",state="RM")
+Dojos.objects.create(name="Dojo2",city="Stgo",state="RM")
+Dojos.objects.create(name="Dojo3",city="Stgo",state="RM")
+
+that_dojo = Dojos.objects.get(id=4)
+ninja1 = Ninjas.objects.create(first_name="donlag",last_name="lagson",Dojo=that_dojo)
+ninja2 = Ninjas.objects.create(first_name="ninjlag",last_name="lagsin",Dojo=that_dojo)
+ninja3 = Ninjas.objects.create(first_name="lagman",last_name="lagson",Dojo=that_dojo)
+
+that_dojo2 = Dojos.objects.get(id=5)
+ninja4 = Ninjas.objects.create(first_name="srlag",last_name="lagi",Dojo=that_dojo2)
+ninja5 = Ninjas.objects.create(first_name="ninjalag2",last_name="lagsin",Dojo=that_dojo2)
+ninja6 = Ninjas.objects.create(first_name="lagman2",last_name="lagsin",Dojo=that_dojo2)
+
+that_dojo3 = Dojos.objects.get(id=6)
+ninja7 = Ninjas.objects.create(first_name="srlag2",last_name="lagi",Dojo=that_dojo3)
+ninja8 = Ninjas.objects.create(first_name="ninjalag3",last_name="lagsin",Dojo=that_dojo3)
+ninja9 = Ninjas.objects.create(first_name="lagman3",last_name="lagsin",Dojo=that_dojo3)
+
+Dojos.objects.get(id=4).Ninja.all()
+<QuerySet [1: donlag, 2: ninjlag, 3: lagman]>
+
+Dojos.objects.get(id=6).Ninja.all()
+<QuerySet [11: srlag2, 12: ninjalag3, 13: lagman3]>
+
+Dojos.objects.get(id=6).Ninja.last()
+
+
+desc = models.CharField(max_length=45,default="dojo antiguo")
+
+from main.models import Dojos,Ninjas
+Dojos.objects.create(name="Dojo1",city="Stgo",state="RM")
+
+
+
+

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-dark min-vh-100">
+        <div class="row">
+            
+            <div class="col-6 offset-3 card mt-5" style="width: 18rem;">
+                <img src="https://images.idgesg.net/images/article/2020/07/stack_of_books_one_open_scattering_flying_letters_language_reading_education_dictionary_by_domin_domin_gettyimages-157719194_abstract_binary_by_aleksei_derin_gettyimages-914850254_cso_2400x1600-100853104-large.jpg" class="card-img-top mt-1" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">To add Books</h5>
+                    <p class="card-text">here you can manage the books</p>
+                    <a href="addbooks" class="btn btn-primary stretched-link">Go to Books</a>
+                </div>
+            </div>
+            <div class="col-6 offset-3 card mt-5" style="width: 18rem;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqf7S0-6zXKBGaR66Vq766fnfbRmof3HK-gQ&usqp=CAU" class="card-img-top mt-1" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">To add Authors</h5>
+                    <p class="card-text">Here you can manage the authors</p>
+                    <a href="addauthors" class="btn btn-primary stretched-link">Go to Authors!</a>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    {% load static %}
+    {{ saludo }}
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

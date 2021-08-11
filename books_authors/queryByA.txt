@@ -1,0 +1,109 @@
+Books.objects.create(title = "C Sharp",desc="book to learn C Sharp")
+In [2]: Books.objects.create(title = "C Sharp",desc="book to learn C Sharp")
+Out[2]: 1,C Sharp
+
+In [3]: Books.objects.create(title = "Java",desc="Book about Java")
+Out[3]: 2,Java
+
+In [4]: Books.objects.create(title = "Python",desc="Book about python")
+Out[4]: 3,Python
+
+In [5]: Books.objects.create(title = "PHP",desc="Book about php")
+Out[5]: 4,PHP
+
+In [6]: Books.objects.create(title = "Ruby",desc="Book about Ruby")
+Out[6]: 5,Ruby
+
+Authors.objects.create(first_name = "Jane",last_name = "Austen")
+Out[7]: 1,Jane
+
+In [8]: Authors.objects.create(first_name = "Emily",last_name = "Dickinson")
+Out[8]: 2,Emily
+
+In [9]: Authors.objects.create(first_name = "Fyodor",last_name = "Dostoevsky")
+Out[9]: 3,Fyodor
+
+In [10]: Authors.objects.create(first_name = "William",last_name = "Shakespeare")
+Out[10]: 4,William
+
+In [11]: Authors.objects.create(first_name = "Lau",last_name = "Tzu")
+Out[11]: 5,Lau
+
+change= Books.objects.get(id=1)
+
+change.title = "C #"
+change.save()
+
+change = Authors.objects.get(id=4)
+
+change
+William
+
+change.first_name = "Bill"
+change.save()
+
+In [10]: Jane = Authors.objects.get(id=1)
+
+In [11]: book1 = Books.objects.get(id=1)
+
+In [12]: book2 = Books.objects.get(id=2)
+
+Jane.books.add(book1)
+
+Jane.books.add(book2)
+
+Jane.books.all()
+
+book3 = Books.objects.get(id=3)
+Emily = Authors.objects.get(id=2)
+
+Emily.books.add(book1)
+
+Emily.books.add(book2)
+
+Emily.books.add(book3)
+
+Fyo = Authors.objects.get(id=3)
+
+book4 = Books.objects.get(id=4)
+
+Fyo.books.add(book1)
+
+Fyo.books.add(book2)
+
+Fyo.books.add(book3)
+
+Fyo.books.add(book4)
+
+Bill = Authors.objects.get(id=4)
+
+book5 = Books.objects.get(id=5)
+
+book5 = Books.objects.get(id=5)
+
+Bill.books.add(book1)
+
+Bill.books.add(book2)
+
+Bill.books.add(book3)
+
+Bill.books.add(book4)
+
+Bill.books.add(book5)
+
+book3.authors.all()
+<QuerySet [2,Emily, 3,Fyodor, 4,Bill]>
+
+book3.authors.remove(Emily)
+book3.authors.all()
+
+Lau = Authors.objects.get(id=5)
+
+Lau.books.add(book2)
+
+Fyo.books.all()
+Out[54]: <QuerySet [1,C #, 2,Java, 3,Python, 4,PHP]>
+
+book5.authors.all()
+Out[55]: <QuerySet [4,Bill]>
+
