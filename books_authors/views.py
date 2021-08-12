@@ -79,5 +79,14 @@ def delauthor(request):
 
     return redirect("/byn/addauthors")
 
+def delete(request,aut_id,book_id):
+    author = Authors.objects.get(id=int(aut_id))
+    book = Books.objects.get(id=int(book_id))
+
+    author.books.remove(book)
+    return redirect(request.META.get('HTTP_REFERER')
+)
+
+
 
 

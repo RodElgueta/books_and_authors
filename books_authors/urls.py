@@ -12,5 +12,6 @@ urlpatterns = [
     path('authors/<int>',views.author),
     path('delauthor',views.delauthor),
     path('addtoauthor/<author_id>',views.addtoauthor),
-    path('addtobook/<book_id>',views.addtobook)
+    path('addtobook/<book_id>',views.addtobook),
+    path('delete/<aut_id>/<book_id>',views.delete)
 ]
